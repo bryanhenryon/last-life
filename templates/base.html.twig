@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBJRMQ4');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148607352-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-148607352-1');
+</script>
+
+<title>Last Life | {% block title %}{% endblock %}</title>
+
+<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+<link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" rel="stylesheet">
+<link href="{{ asset('img/favicon.ico') }}" rel="shortcut icon" />
+<meta content="ie=edge" http-equiv="X-UA-Compatible">
+<meta charset="UTF-8">
+<meta name="author" content="Nelwinx">
+<meta name="description" content="Last Life est un blog couvrant l'actualité du jeu vidéo. Découvrez nos articles sur les dernières sorties du moment !">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBJRMQ4"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <nav>
+            <div id="logo">
+                <a href="{{ path('homepage') }}">
+                    <img src="{{ asset('img/logo.png') }}" alt="Logo">
+                </a>
+            </div>
+
+            <ul class="nav-links">
+                <li class="nav-item dropdown">
+                    <a href="{{ path('categorie_pc') }}">PC</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="{{ path('categorie_ps4') }}">PS4</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="{{ path('categorie_xbox') }}">Xbox</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="{{ path('categorie_nintendo') }}">Nintendo</a>
+                </li>
+            </ul>
+
+            <!-- SOCIAL LINKS -->
+            <div class="social-links">
+                <ul>
+                    <li class="twitter">
+                        <a href="https://twitter.com/" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="facebook">
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="youtube">
+                        <a href="https://www.youtube.com/" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li class="youtube">
+                        <a href="{{ path('contact') }}">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+            {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+
+
+            <div class="connexion">
+                <a href="{{ path('login') }}">Se
+                    connecter</a>
+                <a href="{{ path('register') }}">S'inscrire</a>
+            </div>
+
+            <ul class="nav-links-mobile">
+                <li>
+                    <a href="{{ path('login') }}">Se connecter</a>
+                </li>
+                <li>
+                    <a href="{{ path('register') }}">S'inscrire</a>
+                </li >
+
+                <hr class="hr-navslide">
+    
+                <li>
+                    <a href="{{ path('categorie_pc') }}">PC</a>
+                </li>
+                <li>
+                    <a href="{{ path('categorie_ps4') }}">PS4</a>
+                </li>
+                <li>
+                    <a href="{{ path('categorie_xbox') }}">Xbox</a>
+                </li>
+                <li>
+                    <a href="{{ path('categorie_nintendo') }}">Nintendo</a>
+                </li>
+                
+                <hr class="hr-navslide">
+
+                <li>
+                    <a href="{{ path('contact') }}">Nous contacter</a>
+                </li>
+                <li>
+                    <a href="{{ path('mentions_legales') }}">Mentions légales</a>
+                </li>
+            </ul>
+
+            {% else %}
+            <div class="connexion">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="accountDropdownLink">
+                        <img src="{{ asset('img/' ~ app.user.picture) }}" class="avatar avatar-mini"
+                            alt="Avatar de {{ app.user.username }}"> {{ app.user.username }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountDropdownLink">
+
+                        <a href="{{ path('account') }}" class="dropdown-item">Mon compte</a>
+                        <a href="{{ path('profile_update') }}" class="dropdown-item">Modifier mon profil</a>
+                        {% if app.user.role == 'ROLE_ADMIN' %}
+                        <a href="{{ path('index_admin') }}" class="dropdown-item">Espace d'administration</a> {% endif %}
+
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ path('logout') }}" class="dropdown-item">Déconnexion</a>
+
+                    </div>
+                </li>
+            </div>
+
+            <ul class="nav-links-mobile">
+                <li>
+                    <img src="{{ asset('img/' ~ app.user.picture) }}" class="avatar avatar-mini-mobile"
+                        alt="Avatar de {{ app.user.username }}">
+                </li>
+                <li>
+                    <a href="{{ path('account') }}">Mon compte</a>
+                </li>
+                <li>
+                    <a href="{{ path('profile_update') }}">Modifier mon profil</a>
+                </li>
+
+                {% if app.user.role == 'ROLE_ADMIN' %}
+                <li>
+                    <a href="{{ path('index_admin') }}">Espace admin.</a>
+                </li> 
+                {% endif %}
+
+                <li>
+                    <a href="{{ path('logout') }}">Se déconnecter</a>
+                </li>
+
+                <hr class="hr-navslide">
+
+                <li>
+                    <a href="{{ path('categorie_pc') }}">PC</a>
+                </li>
+                <li>
+                    <a href="{{ path('categorie_ps4') }}">PS4</a>
+                </li>
+                <li>
+                    <a href="{{ path('categorie_xbox') }}">Xbox</a>
+                </li>
+                <li>
+                    <a href="{{ path('categorie_nintendo') }}">Nintendo</a>
+                </li>
+
+                <hr class="hr-navslide">
+            
+                <li>
+                    <a href="{{ path('contact') }}">Nous contacter</a>
+                </li>
+                <li>
+                    <a href="{{ path('mentions_legales') }}">Mentions légales</a>
+                </li>
+            </ul>
+            {% endif %}
+        </nav>
+            {% block body %}{% endblock %}
+
+        <footer id="footer">
+            <div id="parent-footer">
+                <div class="footer-div-principal">
+                    <img src="{{ asset('img/logo.png') }}" alt="" id="last-life-footer">
+                    <p class="mt-3">Last Life &copy; 2019. Tous droits réservés.</p>
+                </div>
+
+                <div class="footer-div">
+                    <p>
+                        <b>Explorer</b>
+                    </p>
+                    <hr>
+                    <ul>
+                            <li>
+                                    <a href="{{ path('categorie_pc') }}">PC</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('categorie_ps4') }}">PS4</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('categorie_xbox') }}">Xbox</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('categorie_nintendo') }}">Nintendo</a>
+                                </li>
+                    
+                    </ul>
+                </div>
+
+                <div class="footer-div">
+                    <p>
+                        <b>Liens utiles</b>
+                    </p>
+                    <hr>
+                    <ul>
+                            <li><a href="{{ path('contact') }}">Nous contacter</a></li>
+                            <li><a href="{{ path('mentions_legales') }}">Mentions légales</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-div">
+                    <p>
+                        <b>Nous suivre</b>
+                    </p>
+                    <hr>
+                    <ul>                       
+                        <li><a href="https://www.facebook.com/" target="_blank">Facebook</a></li>                      
+                        <li><a href="https://twitter.com/" target="_blank">Twitter</a></li>
+                        <li><a href="https://www.youtube.com/" target="_blank">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+                    <script crossorigin="anonymous"
+                        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+                    <script crossorigin="anonymous"
+                        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                    <script src="{{ asset('js/javascript.js') }}"></script>
+            <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+            <script>
+            window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                "background": "#f7f7f7"
+                },
+                "button": {
+                "background": "#c6262d",
+                "text": "#ffffff"
+                }
+            },
+            "content": {
+                "message": "Nous utilisons des cookies pour nous permettre de mieux comprendre comment le site est utilis&#233;. En continuant &agrave; utiliser ce site, vous acceptez cette politique.",
+                "dismiss": "Accepter",
+                "link": "En savoir plus",
+                "href": "{{ path('mentions_legales') }}#vieprivee",
+                "target": '_self'
+            }
+            });
+            </script>
+            {% block javascripts %}{% endblock %}
+        </footer>
+    </div>
+</body>
+
+</html>

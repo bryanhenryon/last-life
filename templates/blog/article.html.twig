@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ articles.titre }}
+{% endblock %}
+
+{% block body %}
+<div class="article-background">
+    <section class="article-section" id="stick-footer">
+        <div class="article-header">
+            <img src="{{ asset('img/' ~ articles.imagePreview) }}" alt="" id="article-header">
+
+            <div class="title">
+                <h1>{{ articles.titre }}</h1>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <div class="row">
+                <div class="col-12 mx-auto col-sm-10 col-lg-12 mt-5">
+                    <p>{{ articles.firstParagraph }}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                    <img src="{{ asset('img/' ~ articles.firstImage) }}" alt="{{ articles.titre }}"
+                    class="col-12 mx-auto mb-5 mt-4 col-lg-4" id="firstImage">
+                <div class="col-12 mx-auto col-sm-10 col-lg-8">
+                    <p>{{ articles.secondParagraph }}</p>
+                    <p>{{ articles.thirdParagraph }}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 mx-auto col-sm-10 col-lg-8" id="order-switch">
+                    <p>{{ articles.fourthParagraph }}</p>
+                    <p>{{ articles.fifthParagraph }}</p>
+                </div>
+                    <img src="{{ asset('img/' ~ articles.secondImage) }}" alt="{{ articles.titre }}" class="col-12 mx-auto mb-3 mb-5 mt-4 col-lg-4" id="secondImage">
+            </div>
+
+            <div class="row">
+                <div class="col-11 col-md-8 mx-auto embed-responsive embed-responsive-16by9 mb-3">
+                    <iframe width="560" height="315" class="embed-responsive-item" src="{{ articles.video }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-11 col-sm-10 mx-auto mb-5 mt-5 container">
+            <p id="author"><em>Publié le {{ articles.dateTimePublication | date('d/m/Y à H:i')}} par {{ articles.author.username }}</em></p>
+        </div>
+
+        <section class="comments">
+            {% if articles.comments|length > 0 %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-11 mx-auto mb-5">
+                            <h4>Commentaires ({{ articles.comments|length }}) :</h4>
+                        </div>
+                    </div>
+                </div>
+
+                {% for comment in articles.comments|reverse %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-11 mx-auto">
+                            <img src="{{ asset('img/' ~ comment.author.picture) }}" alt="Avatar de {{ comment.author.username }}" class="avatar-mini mr-1">
+                            {{ comment.author.username }}
+                            (<small>{{ comment.createdAt | date('d/m/Y à H:i')}}</small>)
+                        </div>
+                        <div class="col-11 mx-auto">
+                            <p class="mt-2 mb-5">{{ comment.content }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <div class="container" id="mobile-comment">
+                    <div class="alert alert-success" id="no-comments" role="alert">
+                        Aucun commentaire pour le moment, soyez le premier à en poster un !
+                    </div>
+                </div>
+            {% endif %}
+            {% endif %}
+        </section>
+
+        <div class="container" id="mobile-comment">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {{ form_start(form) }}
+            <label for="comment_content">Commentaire :</label>
+            {{ form_widget(form.content) }}
+            <button type="submit" class="btn btn-danger mb-5">Poster</button>
+            {{ form_end(form) }}
+            {% else %}
+            <div class="alert alert-success" role="alert">Vous devez être <a href="{{ path('login') }}" id="comment_connection">connecté(e)</a> pour poster un commentaire !</div>
+            <br>
+            {% endif %}
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+
+
+<img src="{{ absolute_url(asset('img/logo.png')) }}">
+
+
+
+<br><br>
+
+
+
+<strong>Prénom et nom : </strong>{{ data.prenom }} {{ data.nom }} | <strong>Email : </strong> {{ data.email }} | <strong>Téléphone : </strong>{{ data.telephone }}
+
+
+
+<br><br>
+
+
+
+<h3 style="display:inline-block">Objet : </h3> {{ data.objet | raw }}
+
+
+
+
+
+<h3>Message :</h3>
+
+
+
+<p>
+
+    {{ data.message | raw }}
+
+</p>
+
+
+

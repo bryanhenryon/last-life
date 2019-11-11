@@ -1,0 +1,76 @@
+{% extends 'base_admin.html.twig' %}
+
+
+
+{% block title %}Admin | Liste des membres{% endblock %}
+
+
+
+{% block body %}
+
+
+
+<table id="table-membres" class="table table-striped">
+
+    <tr>
+        <th>Date d'enregistrement</th>
+
+        <th>Prénom</th>
+
+        <th>Nom</th>
+
+        <th>Pseudo</th>
+
+        <th>Action</th>
+    </tr>
+
+    {% for mbr in membres %}
+
+    <tr>
+ 	<td>{% if mbr.dateTimeRegistry %}Le {{ mbr.dateTimeRegistry | date('d/m/Y') }} à {{ mbr.dateTimeRegistry | date('H:i') }}{% else %}-{% endif %}</td>
+
+        <td>{{ mbr.prenom }}</td>
+
+        <td>{{ mbr.nom }}</td>
+
+        <td>{{ mbr.username }}</td>
+
+        <td><a  onclick="return confirm('Êtes-vous certain de vouloir supprimer le membre n°{{ mbr.id }} ?')" href="{{ path('index_delete', {'id' : mbr.id }) }}" class="delete-link">SUPPRIMER</a></td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+
+
+<ul class="pagination mt-5 mx-auto">
+
+        <li class="page-item {% if page == 1 %}disabled{% endif %}">
+
+            <a class="page-link" href="{{ path('index_admin', {'page': page -1})}}" tabindex="-1" aria-disabled="true">Prec.</a>
+
+        </li>
+
+        {% for i in 1.. pages %}
+
+        <li class="page-item {% if page == i %}active{% endif %}" aria-current="page" >
+
+            <a class="page-link" href="{{ path('index_admin', {'page': i}) }}">{{ i }}</a>
+
+        </li>
+
+        {% endfor %}
+
+        <li class="page-item {% if page == pages %}disabled{% endif %}">
+
+            <a class="page-link" href="{{ path('index_admin', {'page': page +1})}}">Suiv.</a>
+
+        </li>
+
+    </ul>
+
+
+
+{% endblock %}

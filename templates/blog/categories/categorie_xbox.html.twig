@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<main id="stick-footer">
+        {% for label, messages in app.flashes %}
+    <div class="container">
+        <div class="alert alert-{{ label }}">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %} 
+
+    {% for article in articles %}
+    <div class="index-section">
+        <div class="headline">
+            <div class="main-headline">
+                <a href="{{ path('article_cat', { 'slug': article.slug, 'categorie': article.categorie }) }}">
+                    <img src="{{ asset('img/' ~ article.imagePreview ) }}" alt="{{ article.titre }}" class="previewImage">
+                    <div class="main-headline-text">
+                        <span class="main-headline-text-red">{{ article.titlePreview }}</span>
+                        <p>{{ article.textPreview }}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</main>
+
+<div id="scrollBackToTop"><i class="fas fa-chevron-circle-up"></i></div>
+
+<div id="pagination">
+    <ul>
+        {% if page == 1 %}
+        <li>
+            Page prec.
+        </li>
+        {% else %}
+        <li>
+            <a href="{{ path('categorie_xbox', {'page': page -1})}}">Page prec.</a>
+        </li>
+        {% endif %}
+        {% for i in 1..pages %}
+        <li class="{% if page == i %}active{% endif %}">
+            <a href="{{ path('categorie_xbox', {'page': i}) }}">{{ i }}</a>
+        </li>
+        {% endfor %}
+
+        {% if page == pages %}
+        <li>
+            Page suiv.
+        </li>
+        {% else %}
+        <li>
+            <a href="{{ path('categorie_xbox', {'page': page +1})}}">Page suiv.</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Page non trouvée{% endblock %}
+
+
+
+{% block body %}
+
+    <div class="container mt-5 col-11 mx-auto text-light" id="stick-footer">
+
+        <h1>Quelque chose est cassé...</h1>
+
+        <p>Désolé, la page à laquelle vous essayez d'accéder est temporairement indisponible. Nous vous invitons à retourner vers la page d'accueil en <a href="{{ path('homepage') }}" id="error-redirect">cliquant ici</a>.</p>
+
+    </div> 
+
+{% endblock %}
+
+ 

@@ -1,0 +1,81 @@
+{% extends 'base_admin.html.twig' %}
+
+
+
+{% block title %}Admin | Liste des commentaires{% endblock %}
+
+
+
+{% block body %}
+
+
+
+<table id="comments-table" class="table table-striped">
+
+    <tr>
+
+        <th>Date de publication</th>
+
+        <th>Auteur</th>
+
+        <th>Article</th>
+
+        <th>Aperçu du commentaire</th>
+
+        <th>Action</th>
+
+    </tr>
+
+    {% for comment in comments %}
+
+    <tr>
+
+        <td>{% if comment.createdAt %}Le {{ comment.createdAt | date('d/m/Y') }} à {{ comment.createdAt | date('H:i') }}{% else %}-{% endif %}</td>
+
+        <td>{{ comment.author.username }}</td>
+
+          <td><a href="{{ path('article',  {'slug' : comment.article.slug })}}" class="article-link">{{ comment.article.titre }}</a>
+
+            </td>
+
+        <td>{{ comment.content|length > 50 ? comment.content|slice(0, 50) ~ ' ...' : comment.content  }}</td>
+
+        <td><a onclick="return confirm('Êtes-vous certain(e) de vouloir supprimer ce commentaire ?')" href="{{ path('comment_delete', {'id' : comment.id }) }}" class="delete-link">SUPPRIMER</a></td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+
+
+<ul class="pagination mt-5 mx-auto">
+
+    <li class="page-item {% if page == 1 %}disabled{% endif %}">
+
+        <a class="page-link" href="{{ path('comments_admin', {'page': page -1})}}" tabindex="-1" aria-disabled="true">Prec.</a>
+
+    </li>
+
+    {% for i in 1.. pages %}
+
+    <li class="page-item {% if page == i %}active{% endif %}" aria-current="page" >
+
+        <a class="page-link" href="{{ path('comments_admin', {'page': i}) }}">{{ i }}</a>
+
+    </li>
+
+    {% endfor %}
+
+    <li class="page-item {% if page == pages %}disabled{% endif %}">
+
+        <a class="page-link" href="{{ path('comments_admin', {'page': page +1})}}">Suiv.</a>
+
+    </li>
+
+</ul>
+
+
+
+{% endblock %}

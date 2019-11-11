@@ -1,0 +1,147 @@
+{% extends 'base_admin.html.twig' %}
+
+{% block title %}Admin | Publier un article{% endblock %}
+
+{% block body %}
+
+<body>
+    
+    <div class="container mt-5">
+
+        {{ form_start(formArticle) }}
+
+        <div class="form-group mb-4">
+                <label for="">Catégorie :</label>
+                {{ form_widget(formArticle.categorie) }}
+                {{ form_errors(formArticle.categorie) }}
+                <span class="constraints"></span>
+                <br>
+                <span class="constraints"></span>
+
+            </div>
+
+        <div class="form-group mb-4">
+            <label for="">Titre de présentation :</label>
+            {{ form_widget(formArticle.titlePreview) }}
+            {{ form_errors(formArticle.titlePreview) }}
+            <span class="constraints">Entre 30 et 80 caractères</span>
+
+        </div>
+
+
+        <div class="form-group mb-4">
+            <label for="">Texte de présentation :</label>
+            {{ form_widget(formArticle.textPreview) }}
+            {{ form_errors(formArticle.textPreview) }}
+            <span class="constraints">Entre 50 et 150 caractères</span>
+
+
+        </div>
+
+        <div class="form-group mb-4">
+            <label for="">Image de présentation :</label>
+            {{ form_widget(formArticle.file) }}
+            {{ form_errors(formArticle.file) }}
+            <span class="constraints">Formats : PNG, JPG ou JPEG</span>
+            <br>
+            <span class="constraints">Taille minimale : 1280x480 pixels</span>
+
+
+
+        </div>
+
+        <div class="form-group mb-4">
+            <label for="">Titre de l'article :</label>
+            {{ form_widget(formArticle.titre) }}
+            {{ form_errors(formArticle.titre) }}
+            <span class="constraints">Entre 30 et 80 caractères</span>
+
+        </div>
+
+        <div class="form-group mb-4">
+            <div class="form-group ">
+                <label for="">Premier paragraphe :</label>
+                {{ form_widget(formArticle.firstParagraph) }}
+                {{ form_errors(formArticle.firstParagraph) }}
+                <span class="constraints">Entre 500 et 3000 caractères</span>
+
+
+            </div>
+
+            <div class="form-group mt-4 mb-4">
+                <label for="">Deuxième paragraphe :</label>
+                {{ form_widget(formArticle.secondParagraph) }}
+                {{ form_errors(formArticle.secondParagraph) }}
+                <span class="constraints">Entre 500 et 3000 caractères</span>
+
+
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="">Troisième paragraphe :</label>
+                {{ form_widget(formArticle.thirdParagraph) }}
+                {{ form_errors(formArticle.thirdParagraph) }}
+                <span class="constraints">Entre 500 et 3000 caractères</span>
+
+
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="">Première image :</label>
+                {{ form_widget(formArticle.fileun) }}
+                {{ form_errors(formArticle.fileun) }}
+                <span class="constraints">Formats : PNG, JPG ou JPEG</span>
+                <br>
+                <span class="constraints">Taille minimale : 300x300 pixels</span>
+
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="">Quatrième paragraphe :</label>
+                {{ form_widget(formArticle.fourthParagraph) }}
+                {{ form_errors(formArticle.fourthParagraph) }}
+                <span class="constraints">Entre 500 et 3000 caractères</span>
+
+
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="">Cinquième paragraphe :</label>
+                {{ form_widget(formArticle.fifthParagraph) }}
+                {{ form_errors(formArticle.fifthParagraph) }}
+                <span class="constraints">Entre 500 et 3000 caractères</span>
+
+
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="">Seconde image :</label>
+                {{ form_widget(formArticle.filedeux) }}
+                {{ form_errors(formArticle.filedeux) }}
+                <span class="constraints">Formats : PNG, JPG ou JPEG</span>
+                <br>
+                <span class="constraints">Taille minimale : 300x300 pixels</span>
+
+            </div>
+
+            <div class="form-group mb-4">
+                    <label for="">Lien YouTube d'intégration :</label>
+                    {{ form_widget(formArticle.video) }}
+                    {{ form_errors(formArticle.video) }}
+                    <span class="constraints">Ex: https://www.youtube.com/embed/XDpoBc8t6gE</span>
+    
+    
+                </div>
+
+            <div class="form-group">
+                {{ form_widget(formArticle.submit) }}
+            </div>
+
+            {{ form_end(formArticle) }}
+
+            <br>
+
+        </div>
+
+</body>
+{% endblock %}

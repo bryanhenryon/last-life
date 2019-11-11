@@ -1,0 +1,95 @@
+{% extends 'base_admin.html.twig' %}
+
+
+
+{% block title %}Admin | Liste des articles{% endblock %}
+
+
+
+{% block body %}
+
+<div class="liste-articles">
+
+    <table id="table-articles" class="table table-striped">
+
+        <a href="{{ path('articles_add') }}" class="btn btn-danger" id="ajouterUnArticle">Ajouter un article</a>
+
+        <br><br>
+
+        <tr>
+
+
+            <th>Date de publication</th>
+
+            <th>Titre de l'article</th>
+
+            <th>Auteur</th>
+
+            <th colspan="2">Action</th>
+
+        </tr>
+
+
+
+        {% for article in articles %}
+
+        <tr>
+            <td>Le {{ article.dateTimePublication | date("d/m/Y")}} à {{ article.dateTimePublication | date("H:i")}}
+
+            </td>
+
+            <td><a href="{{ path('article',  {'slug' : article.slug })}}" class="article-link">{{ article.titre }}</a>
+
+            </td>
+
+            <td>{{ article.author.username }}</td>
+
+            <td><a href="{{ path('articles_update', {'id' : article.id }) }}" id="update-link">MODIFIER</a></td>
+
+            <td><a onclick="return confirm('Êtes-vous certain de vouloir supprimer l\'article n°{{ article.id }} ?')"
+
+                    href="{{ path('articles_delete', {'id' : article.id }) }}" class="delete-link">SUPPRIMER</a></td>
+
+        </tr>
+
+        {% endfor %}
+
+
+
+
+
+    </table>
+
+
+
+
+
+        <ul class="pagination mt-5 mx-auto">
+
+            <li class="page-item {% if page == 1 %}disabled{% endif %}">
+
+                <a class="page-link" href="{{ path('articles_admin', {'page': page -1})}}" tabindex="-1" aria-disabled="true">Prec.</a>
+
+            </li>
+
+            {% for i in 1.. pages %}
+
+            <li class="page-item {% if page == i %}active{% endif %}" aria-current="page">
+
+                <a class="page-link" href="{{ path('articles_admin', {'page': i}) }}">{{ i }}</a>
+
+            </li>
+
+            {% endfor %}
+
+            <li class="page-item {% if page == pages %}disabled{% endif %}">
+
+                <a class="page-link" href="{{ path('articles_admin', {'page': page +1})}}">Suiv.</a>
+
+            </li>
+
+        </ul>
+
+
+
+    {% endblock %}
