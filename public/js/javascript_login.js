@@ -10,3 +10,4 @@ window.onload = function(){
         (mdp.type == 'password') ? mdp.type = 'text' : mdp.type = 'password';
     }
   }
+

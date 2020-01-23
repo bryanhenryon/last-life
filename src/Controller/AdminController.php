@@ -104,7 +104,7 @@ class AdminController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'L\'article n°' . $article->getId() . ' a bien été publié'
+                'L\'article a bien été publié'
             );
 
             return $this->redirectToRoute('articles_admin');
@@ -167,7 +167,7 @@ class AdminController extends AbstractController
 
             $this->addFlash(
                 'success',
-                'L\'article n°' . $article->getId() . ' a bien été modifié'
+                'L\'article a bien été modifié'
             );
             return $this->redirectToRoute('articles_admin');
         }

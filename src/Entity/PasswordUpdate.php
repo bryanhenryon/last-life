@@ -8,16 +8,21 @@ class PasswordUpdate
 
     private $id;
 
-
+    /**
+     * @Assert\NotBlank(message="Veuillez indiquer votre mot de passe actuel")
+     * 
+     */
     private $oldPassword;
 
      /**
      * @Assert\Length(min=8, minMessage="Votre mot de passe doit faire au minimum 8 caractères")
+     * @Assert\NotBlank(message="Veuillez indiquer votre nouveau mot de passe")
      */
     private $newPassword;
 
      /**
      * @Assert\EqualTo(propertyPath="newPassword", message="Les mots de passe ne correspondent pas")
+     * @Assert\NotBlank(message="Veuillez confirmer votre nouveau mot de passe")
      */
     private $confirmPassword;
 

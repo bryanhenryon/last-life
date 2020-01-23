@@ -72,4 +72,11 @@ class BaseController extends AbstractController
     public function mentionsLegales(){
         return $this->render('base/mentions_legales.html.twig');
     }
+
+    /**
+     * @Route("/confidentialite", name="confidentialite")
+     */
+    public function confidentialite(){
+        return $this->render('base/confidentialite.html.twig');
+    }
 }

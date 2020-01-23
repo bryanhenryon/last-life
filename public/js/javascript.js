@@ -35,7 +35,7 @@ $('#account_file').on('change',function(){
 if($(window).width() >= 1024){
     $(document).ready(function(){ 
         $(window).scroll(function(){ 
-            if ($(this).scrollTop() > 1500) { 
+            if ($(this).scrollTop() > 700) { 
                 $('#scrollBackToTop').fadeIn(); 
             } else { 
                 $('#scrollBackToTop').fadeOut(); 

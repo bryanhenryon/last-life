@@ -1,90 +1,57 @@
-<!DOCTYPE html>
+{% extends 'base.html.twig' %}
 
-<html lang="fr">
+{% block title %}Inscription{% endblock %}
 
-<head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-148607352-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-148607352-1');
-</script>
-<title>Last Life | Inscription</title>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-<link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" />
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="author" content="Nelwinx">
-<meta name="description" content="Last Life est un blog indépendant couvrant l'actualité du jeu vidéo. Venez lire nos tests et articles sur les dernières sorties du moment !">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body id="register-body">
-    <div class="formulaire">
+{% block body %}
+<main id="stick-footer">
+    <div class="container my-5 mx-auto text-light mt-5" id="register-container">
         {{ form_start(formMembre) }}
-        <div class="form-header">
-            <a href="{{ path('homepage' )}}" id="register_backToIndex"><i class="fas fa-arrow-left"></i></a>
-            <span>Inscription</span>
-        </div>
-
-        <div class="prenom-nom">
-            <div class="prenom">
-                <label for="membre_prenom">Prénom</label><br>
-                {{ form_widget(formMembre.prenom) }}
-                {{ form_errors(formMembre.prenom) }}
-            </div>
-
-            <div class="nom">
-                <label for="membre_nom">Nom</label><br>
-                {{ form_widget(formMembre.nom) }}
-                {{ form_errors(formMembre.nom) }}
-            </div>
-        </div>
-
-        <div class="pseudo-container">
-            <div class="pseudo">
-                <label for="membre_username">Pseudo<span class="asterisque1">*</span></label><br>
-                {{ form_widget(formMembre.username) }}
-                {{ form_errors(formMembre.username) }}
-            </div>
-
-            <div class="email">
-                <label for="membre_email">Email<span class="asterisque2">*</span></label><br>
-                {{ form_widget(formMembre.email) }}
-                {{ form_errors(formMembre.email) }}
-            </div>
-
-            <div class="password">
-                <label for="membre_password">Mot de passe<span class="asterisque3">*</span></label><br>
-                {{ form_widget(formMembre.password) }}
-                {{ form_errors(formMembre.password) }}
-            </div>
-
-            <div class="password">
-                <label for="membre_confirm_password">Confirmation du mot de passe<span class="asterisque3">*</span></label><br>
-                {{ form_widget(formMembre.confirm_password) }}
-                {{ form_errors(formMembre.confirm_password) }}
-            </div>
-
-            <div class="parent-inscription">
-                <div class="inscription">
-                {{ form_widget(formMembre.submit) }}
+        <h1 id="header-register">Inscription</h1>
+        
+                <div class="d-flex mb-2">
+                    <div class="col-6 p-2">
+                        <label for="membre_prenom">Prénom</label><br>
+                        {{ form_widget(formMembre.prenom) }}
+                        {{ form_errors(formMembre.prenom) }}
+                    </div>
+                    <div class="col-6 p-2">
+                        <label for="membre_nom">Nom</label><br>
+                        {{ form_widget(formMembre.nom) }}
+                        {{ form_errors(formMembre.nom) }}
+                    </div>
                 </div>
-            </div>
 
-            <div id="se-connecter">
-                <p><a href="{{ path('login') }}">Déjà membre ? Se connecter</a></p>
-            </div>
-        </div>
+                <div class="form-group">
+                    <label for="membre_username" class="mt-2">Pseudo<span class="asterisque1">*</span></label><br>
+                    {{ form_widget(formMembre.username) }}
+                    {{ form_errors(formMembre.username) }}
+                </div>
+
+                <div class="form-group">
+                    <label for="membre_email" class="mt-2">Email<span class="asterisque2">*</span></label><br>
+                    {{ form_widget(formMembre.email) }}
+                    {{ form_errors(formMembre.email) }}
+                </div>
+
+                <div class="form-group">
+                    <label for="membre_password" class="mt-2">Mot de passe<span class="asterisque3">*</span></label><br>
+                    {{ form_widget(formMembre.password) }}
+                    {{ form_errors(formMembre.password) }}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="membre_confirm_password" class="mt-2">Confirmation du mot de passe<span class="asterisque3">*</span></label><br>
+                    {{ form_widget(formMembre.confirm_password) }}
+                    {{ form_errors(formMembre.confirm_password) }}
+                </div>
+
+                <div class="inscription mt-4">
+                {{ form_widget(formMembre.submit) }}
+
+                <div id="connect-redirect" class="mx-auto text-center mt-3"><a href="{{ path('login') }}" id="connect-redirect">Déjà membre ? Se connecter</a></div>
+
         {{ form_end(formMembre) }}
     </div>
-</body>
-
-</html>
+</main>
+    {% endblock %}

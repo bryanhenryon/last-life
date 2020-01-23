@@ -39,9 +39,9 @@ class ArticleType extends AbstractType
                 'required' => false,
                 'constraints' => array(
                     new Assert\Length(array(
-                        'min' => 50,
+                        'min' => 20,
                         'max' => 150,
-                        'minMessage' => 'Le texte de présentation doit contenir au minimum 50 caractères',
+                        'minMessage' => 'Le texte de présentation doit contenir au minimum 20 caractères',
                         'maxMessage' => 'Le texte de présentation doit contenir au maximum 150 caractères',
                     )),
                     new Assert\NotBlank(array(
@@ -90,9 +90,9 @@ class ArticleType extends AbstractType
                 'required' => false,
                 'constraints' => array(
                     new Assert\Length(array(
-                        'min' => 500,
+                        'min' => 400,
                         'max' => 3000,
-                        'minMessage' => 'Le paragraphe doit contenir au minimum 500 caractères',
+                        'minMessage' => 'Le paragraphe doit contenir au minimum 400 caractères',
                         'maxMessage' => 'Le paragraphe doit contenir au maximum 3000 caractères',
                     )),
                     new Assert\NotBlank(array(
@@ -105,9 +105,9 @@ class ArticleType extends AbstractType
                 'required' => false,
                 'constraints' => array(
                     new Assert\Length(array(
-                        'min' => 500,
+                        'min' => 400,
                         'max' => 3000,
-                        'minMessage' => 'Le paragraphe doit contenir au minimum 500 caractères',
+                        'minMessage' => 'Le paragraphe doit contenir au minimum 400 caractères',
                         'maxMessage' => 'Le paragraphe doit contenir au maximum 3000 caractères',
                     )),
                     new Assert\NotBlank(array(
@@ -120,9 +120,9 @@ class ArticleType extends AbstractType
                 'required' => false,
                 'constraints' => array(
                     new Assert\Length(array(
-                        'min' => 500,
+                        'min' => 400,
                         'max' => 3000,
-                        'minMessage' => 'Le paragraphe doit contenir au minimum 500 caractères',
+                        'minMessage' => 'Le paragraphe doit contenir au minimum 400 caractères',
                         'maxMessage' => 'Le paragraphe doit contenir au maximum 3000 caractères',
                     )),
                     new Assert\NotBlank(array(
@@ -156,9 +156,9 @@ class ArticleType extends AbstractType
                 'required' => false,
                 'constraints' => array(
                     new Assert\Length(array(
-                        'min' => 500,
+                        'min' => 400,
                         'max' => 3000,
-                        'minMessage' => 'Le paragraphe doit contenir au minimum 500 caractères',
+                        'minMessage' => 'Le paragraphe doit contenir au minimum 400 caractères',
                         'maxMessage' => 'Le paragraphe doit contenir au maximum 3000 caractères',
                     )),
                     new Assert\NotBlank(array(
@@ -171,9 +171,9 @@ class ArticleType extends AbstractType
                 'required' => false,
                 'constraints' => array(
                     new Assert\Length(array(
-                        'min' => 500,
+                        'min' => 400,
                         'max' => 3000,
-                        'minMessage' => 'Le paragraphe doit contenir au minimum 500 caractères',
+                        'minMessage' => 'Le paragraphe doit contenir au minimum 400 caractères',
                         'maxMessage' => 'Le paragraphe doit contenir au maximum 3000 caractères',
                     )),
                     new Assert\NotBlank(array(

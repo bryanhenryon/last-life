@@ -33,7 +33,7 @@ html {
 
 #stick-footer {
 
-    min-height: calc(100vh - 75px - 240px);
+    min-height: calc(110vh - 75px - 240px);
 
 }
 
@@ -43,12 +43,14 @@ body{
 
     min-height: 100%;
     background-color: #2C1720;
+    padding-top: 50px;
 
 
 }
 
 #body-admin{
     background-color:white;
+    padding:0;
 }
 
 #wrapper{
@@ -72,6 +74,7 @@ body{
         overflow-x: hidden;
 
     } 
+
 
 }
 
@@ -179,32 +182,15 @@ nav {
 
     background-color: #C6262D;
 
-}
+    position:fixed;
 
+    top:0;
 
+    z-index:1000;
 
-#logo {
-
-    color: rgba(226, 226, 226);
-
-    text-transform: uppercase;
-
-    letter-spacing: 5px;
-
-    font-size: 20px;
-
-    font-family: 'Righteous', cursive;
+    width:100%;
 
 }
-
-
-
-#logo a {
-
-    color: white;
-
-}
-
 
 
 .nav-links {
@@ -223,6 +209,8 @@ nav {
 
     margin-top: 15px;
 
+    display: inline-block;
+
 }
 
 
@@ -237,7 +225,7 @@ nav {
 
 
 
-.nav-links a {
+.nav-links li a {
 
     color: rgba(226, 226, 226);
 
@@ -249,8 +237,23 @@ nav {
 
     font-size: 14px;
 
+    display: inline-block;
+
 }
 
+
+    .cool-link::after{
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #fff;
+        transition: width .3s;
+       }
+       .cool-link:hover::after{
+        width: 100%;
+        transition: width .3s;
+       }
 
 
 .connexion a {
@@ -568,7 +571,6 @@ nav {
 
             width:77%;
 
-            height:140vh;
 
         }
     }
@@ -581,15 +583,6 @@ nav {
 
     }
 
-    @media screen and (max-width: 320px) {
-
-        .nav-links-mobile{
-
-           height:180vh
-
-        }
-
-    }
 
 
 
@@ -817,6 +810,8 @@ nav {
 
     font-size: 22px;
 
+    display:inline;
+
 }
 
 
@@ -1016,78 +1011,9 @@ nav {
 
 /* REGISTER PAGE */
 
-#register-body{
-
-    background:url('../img/8020215577e6e80e2e878bc9502de286.jpg') no-repeat  center center fixed;
-
-    -moz-background-size: cover;
-
-    -webkit-background-size: cover;
-
-    -o-background-size: cover;
-
-    background-size: cover;
-
-}
-
-
-
-.formulaire{
-
-    height:auto;
-
-    background:#f4f4f4;
-
-    width:30%;
-
-    margin-top:100px;
-
-    margin-left:70px;
-
-    border-radius:20px;
-
-    font-family: 'Poppins', sans-serif;
-
-    background-position:cover;
-
-
-
-}
-
-
-
-.form-header{
-
-    background:#FD4C5A;
-
-    height:60px;
-
-    border-radius:10px 10px 0 0;
-
-    color:white;
-
-    font-size:24px;
-
-    text-align:center;
-
-    padding:10px;
-
-    position:relative;
-
-
-
-}
-
-#register_backToIndex{
-    position:absolute;
-    left:30px;
-}
-
-
 
 #membre_submit{
-
-        background:#FD4C5A;
+        background:rgb(226, 69, 77);
 
         color:white;
 
@@ -1104,32 +1030,12 @@ nav {
         margin:0 auto;
 
         cursor:pointer;
-
 }
 
-
-
-.prenom-nom{
-
-    display:flex;
-
-    justify-content:space-around;
-
-    margin-top:50px;
-
-    margin-left:5%;
-
+#connect-redirect{
+    text-decoration:underline;
 }
 
-
-
-.prenom input, .nom input{
-
-    height:25px;
-
-    width:80%;
-
-}
 
 
 
@@ -1141,281 +1047,22 @@ nav {
 
 }
 
-
-
-
-
-.pseudo-container{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
+#header-register{
+    text-align:center;
+    margin-bottom:30px;
+    margin-top:100px;
 }
 
-
-
-.pseudo{
-
-    margin-left:5%;
-
-    margin-top:50px;
-
-}
-
-
-
-.pseudo input{
-
-    height:25px;
-
-    width:100%;
-
-}
-
-
-
-.email{
-
-    margin-left:5%;
-
-    margin-top:30px;
-
-}
-
-
-
-.email input{
-
-    height:25px;
-
-    width:100%;
-
-}
-
-
-
-.password{
-
-    margin-left:5%;
-
-    margin-top:50px;
-
-}
-
-
-
-.password input{
-
-    height:25px;
-
-    width:100%;
-
-}
-
-
-
-.parent-inscription{
-
-    display:flex;
-
-    width:100%;
-
-    justify-content:center;
-
-    margin-top:45px;
-
-}
-
-
-
-.inscription{
-
-    width:85%;
-
-    margin-right:5%;
-
-    margin-bottom:20px;
-
-    
-
-}
-
-
-
-.pseudo, .email, .password, .prenom, .nom{
-
-    width:85%;
-
-}
-
-
-
-
-
-.form-header span{
-
-    position:static;
-
-}
-
-
-
-.fa-arrow-left{
-
-    font-size:20px;
-
-    text-decoration:none;
-
-    color:white;
-
-}
-
-
-
-#se-connecter{
-
-    font-size:12px;
-
-    color:blue;
-
-    text-decoration:underline;
-
-    margin:0 auto;
-
-    margin-top:10px;
-
-    margin-bottom:10px;
-
-}
-
-
-
-
-
-@media screen and (max-width: 1600px)
-
-{
-
-    .formulaire{
-
-        width:35%;
-
+@media screen and (max-width: 500px){
+
+    #header-register{
+        margin-top:50px;
+        margin-bottom:10px;
     }
 
 }
 
 
-
-
-
-@media screen and (max-width: 1200px)
-
-{
-
-    .formulaire{
-
-        width:45%;
-
-    }
-
-}
-
-
-
-@media screen and (max-width: 1024px)
-
-{
-
-    .formulaire{
-
-        width:50%;
-
-    }
-
-}
-
-
-
-
-
-@media screen and (max-width: 900px)
-
-{
-
-    .formulaire{
-
-        width:60%;
-
-    }
-
-}
-
-
-
-@media screen and (max-width: 768px)
-
-{
-
-    .formulaire{
-
-        width:60%;
-
-    }
-
-}
-
-
-
-@media screen and (max-width: 700px)
-
-{
-
-    .formulaire{
-
-        width:80%;
-
-    }
-
-}
-
-
-
-@media screen and (max-width: 600px)
-
-{
-
-    .formulaire{
-
-        width:100%;
-
-        margin:0;
-
-        border-radius:0;
-
-    }
-
-
-
-    #register-body{
-
-        background:#f4f4f4;
-
-    }
-
-
-
-    .form-header{
-
-        border-radius:0;
-
-    }
-
-
-
-}
 
 
 
@@ -1451,159 +1098,26 @@ nav {
 
 /* CONNECTION PAGE */
 
-#login-body{
-
-    background:url('../img/191517.jpg') no-repeat  center center fixed;
-
-    -moz-background-size: cover;
-
-    -webkit-background-size: cover;
-
-    -o-background-size: cover;
-
-    background-size: cover;
-
+.fa-eye{
+    position: absolute;
+    cursor: pointer;
+    font-size: 25px;
+    color: #999;  
+    right:18px;
+    top:5px;
 }
 
-
-
-.formulaire-connection{
-
-    height:auto;
-
-    background:#f4f4f4;
-
-    width:30%;
-
-    margin-top:175px;
-
-    margin-left:70px;
-
-    border-radius:20px;
-
-    font-family: 'Poppins', sans-serif;
-
-    background-position:cover;
-
+.fa-eye.active{
+    color: rgba(218, 72, 84, 0.815);
 }
 
-
-
-
-
-.form-header-connection{
-
-    background:rgb(112, 201, 245);
-
-    height:60px;
-
-    border-radius:10px 10px 0 0;
-
-    color:white;
-
-    font-size:24px;
-
-    text-align:center;
-
-    padding:10px;
-
+#mdp{
     position:relative;
-
 }
-
-
-
-
-
-.pseudo-container-connection{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-}
-
-
-
-.pseudo-connection{
-
-    margin-left:5%;
-
-    margin-top:50px;
-
-}
-
-
-
-.pseudo-connection input{
-
-    height:25px;
-
-    width:100%;
-
-}
-
-
-
-
-
-.password-connection{
-
-    margin-left:5%;
-    margin-top:50px;
-
-}
-
-.parent-connexion{
-
-    display:flex;
-
-    width:100%;
-
-    justify-content:center;
-
-    margin-top:45px;
-
-}
-
-
-.connexion-connection{
-
-    width:85%;
-
-    margin-right:5%;
-
-    margin-bottom:20px;
-
-    
-
-}
-
-
-
-.pseudo-connection, .password-connection{
-
-    width:85%;
-
-}
-
-
-
-.remember_me{
-
-    margin: 0 auto;
-
-    margin-top:20px;
-
-}
-
 
 
 #bouton_envoi-connection{
-
-    background:rgb(112, 201, 245);
+    background:rgb(226, 69, 77);
 
     color:white;
 
@@ -1620,80 +1134,27 @@ nav {
     margin:0 auto;
 
     cursor:pointer;
-
 }
 
-
-
-.form-header span{
-
-    position:static;
-
-}
-
-
-
-.register-redirection{
-
-    font-size:12px;
-
-    color:blue;
-
+#register-redirect{
     text-decoration:underline;
-
-    margin:0 auto;
-
-    width:100%;
-
-    text-align:center;
-
-    margin-top:10px;
-
-    padding-bottom:10px;
-
-}
-
-
-
-.fa-arrow-left{
-
-    font-size:20px;
-
-    text-decoration:none;
-
     color:white;
-
 }
 
-#relative{
-    position:relative;
+#register-forgotten-password{
+    color:white !important;
 }
 
-.fa-eye{
-    position: absolute;
-    cursor: pointer;
-    font-size: 20px;
-    padding-top:5px;
-    color: #999;  
-    right:20px;
+#membre-nom, #membre-prenom{
+    padding:0 !important;
 }
 
-    .fa-eye.active{
-    color: rgb(101, 187, 230);
+#mdp-eye{
+position:relative;
 }
 
-#mdp{
-    width:100%;
-}
-
-#pseudo{
-    width:100%;
-
-}
-
-#login_backToIndex{
-    position:absolute;
-    left:30px;
+#connect-redirect{
+    color:white !important;
 }
 
 
@@ -1704,144 +1165,6 @@ nav {
     text-align:center;
 
 }
-
-@media screen and (max-width: 1600px)
-
-{
-
-    .formulaire-connection{
-
-        width:35%;
-
-    }
-
-}
-
-
-
-
-
-@media screen and (max-width: 1200px)
-
-{
-
-    .formulaire-connection{
-
-        width:45%;
-
-    }
-
-}
-
-
-
-@media screen and (max-width: 1024px)
-
-{
-
-    .formulaire-connection{
-
-        width:50%;
-
-    }
-
-}
-
-
-
-
-
-@media screen and (max-width: 900px)
-
-{
-
-    .formulaire-connection{
-
-        width:60%;
-
-    }
-
-}
-
-
-
-@media screen and (max-width: 768px)
-
-{
-
-    .formulaire-connection{
-
-        width:60%;
-
-    }
-
-}
-
-
-
-@media screen and (max-width: 600px)
-
-{
-
-    #container_login{
-        margin:0;
-        padding:0;
-    }
-
-    .formulaire-connection{
-
-        width:100%;
-
-        margin:0;
-
-        border-radius:0;
-    }
-
-    .fa-eye{
-        padding-top:5px;
-    }
-
-
-    #login-body{
-
-        background:#f4f4f4;
-
-    }
-
-
-
-    .alert-success, .alert-danger{
-
-        margin:0;
-
-    }
-
-
-
-
-    .form-header-connection{
-
-        border-radius:0;
-
-    }
-
-
-
-    #pseudo, #mdp{
-
-        height:30px;
-
-    }
-
-    .pseudo, .password-connection{
-
-        margin-bottom:30px;
-
-    }
-
-}
-
-
 
 
 
@@ -1931,7 +1254,7 @@ nav {
 
     color: white;
 
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Arial', sans-serif;
 
 }
 
@@ -1947,7 +1270,7 @@ nav {
 
     color: white;
 
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Arial', sans-serif;
 
     padding: 15px;
 
@@ -2332,6 +1655,18 @@ hr {
 
 }
 
+@media screen and (max-width: 500px) {
+    #container-contact {
+
+        margin-left: 10%;
+    
+        margin-right: 10%;
+    
+        padding-top: 0px;
+    
+    }
+}
+
 
 
 #position {
@@ -2551,13 +1886,9 @@ hr {
 
 
 .article-header {
-
-    /* background-color: rgba(198, 38, 46, 0.712); */
-
-    height: 300px;
-
     position:relative;
-
+    max-width:100%;
+    height:300px;
 }
 
 
@@ -2568,15 +1899,15 @@ hr {
 
     width:100%;
 
-    filter: blur(2px);
+    filter: blur(3px);
 
-    -webkit-filter: blur(2px);
+    -webkit-filter: blur(3px);
 
-    -moz-filter: blur(2px);
+    -moz-filter: blur(3px);
 
-    -o-filter: blur(2px);
+    -o-filter: blur(3px);
 
-    -ms-filter: blur(2px);
+    -ms-filter: blur(3px);
 
 }
 
@@ -3099,7 +2430,7 @@ hr {
 /* MENTIONS LEGALES */
 
 #mentionsLegalesContainer{
-    margin-top:50px;
+    margin-top:100px;
     margin-bottom:50px;
     color:#f4f4f4;
 }
@@ -3119,15 +2450,106 @@ hr {
     margin:auto;
 }
 
+@media screen and (max-width: 500px) {
+    #mentionsLegalesContainer{
+        margin-top:30px;
+        margin-bottom:50px;
+        color:#f4f4f4;
+    }
+
+    #mentionsLegalesHeader{
+        margin-top:40px;
+    }
+  }
+
 @media screen and (max-width: 400px) {
   .mentionsLegalesH3{
       font-size: 20px;
   }
 }
 
+
+
 /* ERRORS */
 
 #error-redirect{
     color:white;
     text-decoration:underline;
+}
+
+/* Password update */
+    #header-pwd-update{
+        margin-top:150px;
+    }
+
+    @media screen and (max-width: 500px) {
+        #header-pwd-update{
+            margin-top:0px;
+        }
+    }
+
+/*  Mon compte */
+#account-header{
+    margin-top:50px;
+}
+
+@media screen and (max-width: 500px) {
+    #account-header{
+        margin-top:0px;
+    }
+}
+
+/* Account update */
+#header-update-account{
+    margin-top:150px;
+}
+
+@media screen and (max-width: 500px) {
+    #header-update-account{
+        margin-top:50px;
+    }
+}
+
+/* CONNEXION */
+
+#header-connect{
+    margin-top:150px;
+}
+
+@media screen and (max-width: 500px) {
+    #header-connect{
+        margin-top:0px;
+    }
+}
+
+/* OUBLIE MDP */
+
+#ForgottenPwdContainer{
+    margin-top:150px !important;
+}
+
+@media screen and (max-width: 500px) {
+    #ForgottenPwdContainer{
+        margin-top:40px  !important;
+    }
+
+    #ForgottenPwdh1{
+        font-size:32px;
+    }
+}
+
+/* RESET MDP */
+
+#ResetPwdh1{
+    margin-top:150px !important;
+}
+
+@media screen and (max-width: 500px) {
+    #ResetPwdh1{
+        margin-top:40px  !important;
+    }
+
+    #ResetPwdh1{
+        font-size:32px;
+    }
 }

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Email d'inscription</title>
+
+</head>
+
+<body>
+
+        <div class="register-email-container" style="height:auto; width:80%; background-color: #C6262D; color:#f4f4f4; text-align:center; padding:30px; border-radius:5px;">
+
+            <div id="register-email-logo" style="margin:auto; margin-bottom:50px; margin-left:10px;">
+
+               <img src="{{ absolute_url(asset('img/logo.png')) }}">
+
+		
+
+            </div>
+
+
+
+            <h1>Bienvenue, {{ data.username }}</h1>
+
+        
+
+            <p>Merci de votre inscription ! Nous espérons que vous passerez un agréable moment à naviguer sur Last Life. :)</p>
+
+        
+
+            <p>A bientôt !</p>
+
+
+
+            <p style="font-size:12px; margin-top:50px;">Last Life &copy; 2019. Tous droits réservés.</p>
+
+        </div>
+
+</body>
+
+</html>
+
+
+

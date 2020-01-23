@@ -4,8 +4,8 @@
 
 {% block body %}
 
-<div class="container col-11 mx-auto text-light" id="stick-footer">
-    <h1 class="my-5">Modification du profil</h1>
+<div class="container col-11 col-md-6 mx-auto text-light" id="stick-footer">
+    <h1 id="header-update-account">Modification du profil</h1>
     {% for label, messages in app.flashes %}
     <div class="container">
         <div class="alert alert-{{ label }}">
@@ -16,9 +16,42 @@
     </div>
     {% endfor %}
     {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_errors(form) }}
-    <button type="submit" class="btn btn-danger my-3">Enregistrer les modifications</button>
+    <div class="form-group">
+            <label for="account_prenom" class="mt-2">Prénom :</label><br>
+            {{ form_widget(form.prenom) }}
+            {{ form_errors(form.prenom) }}
+    </div>
+
+    <div class="form-group">
+            <label for="account_nom" class="mt-2">Nom :</label><br>
+            {{ form_widget(form.nom) }}
+            {{ form_errors(form.nom) }}
+    </div>
+
+    <div class="form-group">
+            <label for="account_username" class="mt-2">Pseudo :</label><br>
+            {{ form_widget(form.username) }}
+            {{ form_errors(form.username) }}
+    </div>
+
+    <div class="form-group">
+            <label for="account_email" class="mt-2">Email :</label><br>
+            {{ form_widget(form.email) }}
+            {{ form_errors(form.email) }}
+    </div>
+
+    <div class="form-group">
+            <label for="account_file" class="mt-2">Image de profil :</label><br>
+            {{ form_widget(form.file) }}
+            {{ form_errors(form.file) }}
+    </div>
+
+    <div class="form-group">
+            <label for="account_description" class="mt-2">Description :</label><br>
+            {{ form_widget(form.description) }}
+            {{ form_errors(form.description) }}
+    </div>
+    <button type="submit" class="btn btn-danger mt-1 mb-5">Enregistrer les modifications</button>
     {{ form_end(form) }}
 </div>
 {% endblock %}

@@ -30,7 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta content="ie=edge" http-equiv="X-UA-Compatible">
 <meta charset="UTF-8">
 <meta name="author" content="Nelwinx">
-<meta name="description" content="Last Life est un blog couvrant l'actualité du jeu vidéo. Découvrez nos articles sur les dernières sorties du moment !">
+<meta name="description" content="Last Life est un blog indépendant de jeux vidéo. Venez découvrir nos articles sur les jeux aussi bien récents que les classiques qui ont marqué les générations.">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
 </head>
@@ -50,16 +50,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             <ul class="nav-links">
                 <li class="nav-item dropdown">
-                    <a href="{{ path('categorie_pc') }}">PC</a>
+                    <a href="{{ path('categorie_pc') }}" class="cool-link">PC</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="{{ path('categorie_ps4') }}">PS4</a>
+                    <a href="{{ path('categorie_ps4') }}" class="cool-link">PS4</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="{{ path('categorie_xbox') }}">Xbox</a>
+                    <a href="{{ path('categorie_xbox') }}" class="cool-link">Xbox</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="{{ path('categorie_nintendo') }}">Nintendo</a>
+                    <a href="{{ path('categorie_nintendo') }}" class="cool-link">Nintendo</a>
                 </li>
             </ul>
 
@@ -133,6 +133,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <a href="{{ path('contact') }}">Nous contacter</a>
                 </li>
                 <li>
+                    <a href="{{ path('confidentialite') }}">Confidentialité</a>
+                </li>
+                <li>
                     <a href="{{ path('mentions_legales') }}">Mentions légales</a>
                 </li>
             </ul>
@@ -202,6 +205,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <a href="{{ path('contact') }}">Nous contacter</a>
                 </li>
                 <li>
+                    <a href="{{ path('confidentialite') }}">Confidentialité</a>
+                </li>
+                <li>
                     <a href="{{ path('mentions_legales') }}">Mentions légales</a>
                 </li>
             </ul>
@@ -245,6 +251,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     <hr>
                     <ul>
                             <li><a href="{{ path('contact') }}">Nous contacter</a></li>
+                            <li><a href="{{ path('confidentialite') }}">Confidentialité</a></li>
                             <li><a href="{{ path('mentions_legales') }}">Mentions légales</a></li>
                     </ul>
                 </div>

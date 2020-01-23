@@ -8,7 +8,7 @@
 <div class="article-background">
     <section class="article-section" id="stick-footer">
         <div class="article-header">
-            <img src="{{ asset('img/' ~ articles.imagePreview) }}" alt="" id="article-header">
+            <img src="{{ asset('img/' ~ articles.imagePreview) }}" alt="{{ articles.titre }}" id="article-header">
 
             <div class="title">
                 <h1>{{ articles.titre }}</h1>
@@ -79,7 +79,7 @@
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <div class="container" id="mobile-comment">
                     <div class="alert alert-success" id="no-comments" role="alert">
-                        Aucun commentaire pour le moment, soyez le premier à en poster un !
+                        Aucun commentaire pour le moment, soyez la première personne à en poster un !
                     </div>
                 </div>
             {% endif %}
@@ -90,6 +90,7 @@
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             {{ form_start(form) }}
             <label for="comment_content">Commentaire :</label>
+            {{ form_errors(form.content) }}
             {{ form_widget(form.content) }}
             <button type="submit" class="btn btn-danger mb-5">Poster</button>
             {{ form_end(form) }}

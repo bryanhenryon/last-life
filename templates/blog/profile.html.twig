@@ -6,10 +6,12 @@
 <div class="container mt-5 text-light" id="stick-footer">
     <div class="row">
         <div class="col-12 text-center">
+            <h1 class="mb-3" id="account-header">Mon compte</h1>
             <img src="{{ asset('img/' ~ membre.picture) }}" class="avatar-profil mb-3"
                 alt="Avatar de {{ membre.username }}">
             <br>
-
+            <span>{{ membre.username }}</span>
+            <div>{{ membre.prenom }} {{ membre.nom }} </div>
             <span>Inscrit(e) depuis le {{ membre.dateTimeRegistry | date("d/m/Y") }}</span>
             {% if membre is same as (app.user) %}
             <div class="mt-3">

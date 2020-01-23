@@ -8,7 +8,7 @@
     <div class="container">
         <div class="alert alert-{{ label }}">
             {% for message in messages %}
-            <p>{{ message }}</p>
+            <p class="mt-5">{{ message }}</p>
             {% endfor %}
         </div>
     </div>
@@ -21,7 +21,7 @@
                 <a href="article/{{ article.slug }}">
                     <img src="{{ asset('img/' ~ article.imagePreview ) }}" alt="{{ article.titre }}" class="previewImage">
                     <div class="main-headline-text">
-                        <span class="main-headline-text-red">{{ article.titlePreview }}</span>
+                        <h1 class="main-headline-text-red">{{ article.titlePreview }}</h1>
                         <p>{{ article.textPreview }}</p>
                     </div>
                 </a>

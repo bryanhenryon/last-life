@@ -27,7 +27,7 @@ class BlogController extends AbstractController
         /**
          * @Route("/{page}", name="homepage", requirements={"page": "\d+"})
          */
-        public function index(ArticleRepository $repo, $page = 1)
+        public function index(ArticleRepository $repo, $page = 1, ObjectManager $manager, Request $request)
         {
             $limit = 10;
             $start = $page * $limit - $limit;
@@ -38,11 +38,20 @@ class BlogController extends AbstractController
             $coucou = new Article();
             $article = $repo->findBy([], ['dateTimePublication' => 'DESC'], $limit, $start);
         
+            if ($request->isMethod('POST')) {
+            $search = $request->request->get('searchbar');
+            dump($search);
+
+            $manager->getRepository(Article::class)->findOneByTitre($search);
+        
+            }
+
             return $this->render('blog/index.html.twig', [
                 'articles' => $article,
                 'pages' => $pages,
                 'page' => $page
             ]);
+
         }
 
         /**
@@ -216,8 +225,10 @@ class BlogController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             // 1. Vérifier que le oldPassword du formulaire soit le même que le password de l'utilisateur
-            if(!password_verify($passwordUpdate->getOldPassword(), $user->getPassword())){
+            if(empty($passwordUpdate->getOldPassword())){
                 // Gérer l'erreur
+                $form->get('oldPassword')->addError(new FormError("Veuillez indiquer votre mot de passe actuel"));
+            } else if(!password_verify($passwordUpdate->getOldPassword(), $user->getPassword())){
                 $form->get('oldPassword')->addError(new FormError("Le mot de passe que vous avez tapé n'est pas votre mot de passe actuel"));
             } else {
                 $newPassword = $passwordUpdate->getNewPassword();
