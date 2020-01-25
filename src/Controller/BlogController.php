@@ -27,7 +27,7 @@ class BlogController extends AbstractController
         /**
          * @Route("/{page}", name="homepage", requirements={"page": "\d+"})
          */
-        public function index(ArticleRepository $repo, $page = 1, ObjectManager $manager, Request $request)
+        public function index(ArticleRepository $repo, $page = 1)
         {
             $limit = 10;
             $start = $page * $limit - $limit;
@@ -38,20 +38,11 @@ class BlogController extends AbstractController
             $coucou = new Article();
             $article = $repo->findBy([], ['dateTimePublication' => 'DESC'], $limit, $start);
         
-            if ($request->isMethod('POST')) {
-            $search = $request->request->get('searchbar');
-            dump($search);
-
-            $manager->getRepository(Article::class)->findOneByTitre($search);
-        
-            }
-
             return $this->render('blog/index.html.twig', [
                 'articles' => $article,
                 'pages' => $pages,
                 'page' => $page
             ]);
-
         }
 
         /**

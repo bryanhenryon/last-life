@@ -2516,7 +2516,7 @@ hr {
     margin-top:150px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
     #header-connect{
         margin-top:0px;
     }
